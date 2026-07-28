@@ -12,7 +12,7 @@ export default function ExpenseForm({ onAdd }) {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async () => {
-    if (!form.title || !form.amount || !form.date) return alert("Title, Amount aur Date zaroor bharo!");
+    if (!form.title || !form.amount || !form.date) return alert("Title, Fill the Necessary Details Please!");
     setLoading(true);
     await onAdd({ ...form, amount: parseFloat(form.amount) });
     setForm({ title: "", amount: "", category: "Food", date: new Date().toISOString().split("T")[0], description: "" });

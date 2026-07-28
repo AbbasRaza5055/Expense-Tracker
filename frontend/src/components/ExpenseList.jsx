@@ -8,13 +8,13 @@ const CATEGORY_COLORS = {
 
 export default function ExpenseList({ expenses, onDelete, onRefresh }) {
   const handleDelete = async (id) => {
-    if (!confirm("Delete karna chahte ho?")) return;
+    if (!confirm("Do You Want to Delete the Expense?")) return;
     await axios.delete(`${import.meta.env.VITE_API_URL}/expenses/${id}`);
     onRefresh();
   };
 
   if (expenses.length === 0)
-    return <div className="text-center text-white/30 py-10">Koi expense nahi mila</div>;
+    return <div className="text-center text-white/30 py-10">NO Record to Display</div>;
 
   return (
     <div className="space-y-2">
